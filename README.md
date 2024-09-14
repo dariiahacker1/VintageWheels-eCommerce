@@ -35,4 +35,12 @@ Vintage Wheels is an e-commerce website dedicated to classic cars. This reposito
  
 ### Screenshots
 
-<img width="1427" alt="image" src="https://github.com/user-attachments/assets/318e7983-bdd1-4f9f-ae2f-4b4e21b6ba69">
+![telegram-cloud-document-2-5416053459331864447](https://github.com/user-attachments/assets/8b4f14cc-d475-4155-9bb9-755c8dd6e8ae)
+![telegram-cloud-document-2-5416053459331864448](https://github.com/user-attachments/assets/86c54a89-0ac4-433f-bae4-96093d2cf5e6)
+![telegram-cloud-document-2-5416053459331864453](https://github.com/user-attachments/assets/a05f286b-2e91-469d-b631-934cef6c8c39)
+![telegram-cloud-document-2-5416053459331864457](https://github.com/user-attachments/assets/8827016b-d968-4820-b9a8-4cf556370991)
+![telegram-cloud-document-2-5416053459331864458](https://github.com/user-attachments/assets/cdaa1cc5-b77b-49ae-b095-f3548176f47c)
+![telegram-cloud-document-2-5416053459331864462](https://github.com/user-attachments/assets/8078f2b3-bf67-4f0b-a6e0-b3fbf4f941ad)
+![telegram-cloud-document-2-5416053459331864469](https://github.com/user-attachments/assets/53600140-2e1d-4bc0-923e-a2507d389dd5)
+![telegram-cloud-document-2-5416053459331864470](https://github.com/user-attachments/assets/5ba84608-6528-4b33-9910-30f75fb60b24)
+
