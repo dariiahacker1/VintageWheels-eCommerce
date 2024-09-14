@@ -7,23 +7,19 @@ const CarTemplate = ({ id, name,  images, categories, ...car }) => {
     const [largeImage, ...smallImages] = images;
     const placeholderText = `Hi, I'm interested in your ${name} listed for sale on VintageWheels.com for $${car.price}.`;
 
-    // State to manage fullscreen image modal
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalImage, setModalImage] = useState('');
 
-    // Handle message change
     const handleMessageChange = (e) => {
         setMessage(e.target.value);
         setCharCount(e.target.value.length);
     };
 
-    // Handle image click to open in full screen
     const handleImageClick = (image) => {
         setModalImage(image);
         setIsModalOpen(true);
     };
 
-    // Close the modal
     const handleCloseModal = () => {
         setIsModalOpen(false);
         setModalImage('');
@@ -35,7 +31,7 @@ const CarTemplate = ({ id, name,  images, categories, ...car }) => {
 
             <div className="car-information">
                 <div className="car-images">
-                    {/* Render the large image */}
+
                     {largeImage && (
                         <img
                             className="large-image"
@@ -45,7 +41,6 @@ const CarTemplate = ({ id, name,  images, categories, ...car }) => {
                         />
                     )}
 
-                    {/* Render the small images in a row */}
                     {smallImages.length > 0 && (
                         <div className="small-images">
                             {smallImages.map((image, index) => (
@@ -110,7 +105,6 @@ const CarTemplate = ({ id, name,  images, categories, ...car }) => {
                 </div>
             </div>
 
-            {/* Modal for full-screen image */}
             {isModalOpen && (
                 <div className="modal" onClick={handleCloseModal}>
                     <span className="close">&times;</span>

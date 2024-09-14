@@ -1,7 +1,7 @@
 .faq {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center the FAQ section horizontally */
+    align-items: center;
     padding: 20px;
 
     h1{
@@ -16,22 +16,22 @@
 
 .questions {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
-    gap: 10px; /* Space between pairs */
-    width: 100%; /* Ensure it takes full width */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 100%;
     margin-bottom: 30px;
 }
 
 .faq-item {
     display: flex;
-    flex-direction: column; /* Stack question and answer vertically */
+    flex-direction: column;
     align-items: center;
-    width: 100%; /* Ensure it matches the parent width */
+    width: 100%;
 }
 
 .question, .answer {
     text-align: center;
-    width: 100%; /* Ensure it matches the parent width */
+    width: 100%;
     margin: 0;
     display: flex;
     align-items: center;
@@ -45,11 +45,11 @@
     height: 50px;
     cursor: pointer;
     transition: background 0.3s ease;
-    margin-bottom: 5px; /* Space between question and answer */
+    margin-bottom: 5px;
 }
 
 .question:hover {
-    background: #a31c1b; /* Slightly lighter shade on hover */
+    background: #a31c1b;
 }
 
 .answer {
