@@ -1,0 +1,60 @@
+.about{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(12,33,63);
+    background: linear-gradient(90deg, rgba(12,33,63,1) 0%, rgba(12,33,63,1) 50%, rgba(12,33,63,0.8435968137254902) 69%, rgba(211,211,211,1) 100%);
+    border-radius: 10px;
+    width: 90%;
+    height: 70vh;
+    margin-bottom: 200px;
+    padding-left: 50px;
+}
+
+.info{
+    flex: 1;
+    text-align: center;
+
+    h1{
+        font-size: 40px;
+        color: #af1d1a;
+    }
+    hr{
+        width: 80%;
+        border: none;
+        height: 2px;
+        background: #D3D3D3;
+    }
+
+    p{
+        font-size: 20px;
+        color: #D3D3D3;
+    }
+
+    button{
+        color: #D3D3D3;
+        background: #8e1311;
+        border: none;
+        height: 30px;
+        width: 100px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    button:hover{
+        border: 1px solid #8e1211;
+        color: #8e1311;
+        background: #D3D3D3;
+    }
+
+}
+
+.car{
+    flex: 1;
+}
+
+.about img{
+    width: 650px;
+    position: absolute;
+}

@@ -1,0 +1,73 @@
+.locations {
+    text-align: center;
+    padding: 20px;
+}
+
+.locations h1{
+    font-style: italic;
+    font-size: 35px;
+    font-weight: 400;
+    color: #0C213F;
+}
+
+.locations-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.location {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgba(142, 19, 17, 0.77);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    height: 300px;
+    overflow: hidden;
+
+}
+
+.location:hover::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(142, 19, 17, 0.76);
+    z-index: 1;
+}
+
+.location:hover .location-name {
+    background-color: rgba(142, 18, 17, 0);
+    bottom:40%;
+    z-index: 2;
+    color: white;
+}
+
+
+.location img {
+    width: 100%;
+    height: 100%;
+    border-bottom: 1px solid #ccc;
+    object-fit: cover;
+}
+
+.location-name {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(142, 19, 17, 0.76);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
