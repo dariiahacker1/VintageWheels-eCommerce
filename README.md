@@ -22,14 +22,16 @@ Vintage Wheels is an e-commerce website dedicated to classic cars. This reposito
 - **React**: For building user interfaces.
 - **React Router**: For routing and navigation.
 - **CSS**: For styling the components.
-
+- **JavaScript (JS)**: For scripting and logic within the React components.
+- **JSX (HTML in JS)**: For structuring components with an HTML-like syntax in JavaScript.
+  
 ### Folder Structure
 
 - `public/` - Contains static assets like images and the HTML template.
 - `src/` - Contains the React components and other source files.
   - `Components/` - Reusable components such as Navbar, Footer, Item.
   - `Pages/` - Different pages of the website including Home, Inventory, About.
-  - `Assets/` - Static assets like images used in the components and pages.
+  - `Assets/` - Static assets like images used in the components.
   - `App.js` - Main application component where routing is handled.
   - `index.js` - Entry point of the React application.
  
