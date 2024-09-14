@@ -35,6 +35,7 @@ Vintage Wheels is an e-commerce website dedicated to classic cars. This reposito
  
 ### Screenshots
 
+![telegram-cloud-document-2-5416053459331864447](https://github.com/user-attachments/assets/bae85e4f-8a9a-4076-b95e-deeeaabbbe84)
 ![telegram-cloud-document-2-5416053459331864447](https://github.com/user-attachments/assets/8b4f14cc-d475-4155-9bb9-755c8dd6e8ae)
 ![telegram-cloud-document-2-5416053459331864448](https://github.com/user-attachments/assets/86c54a89-0ac4-433f-bae4-96093d2cf5e6)
 ![telegram-cloud-document-2-5416053459331864453](https://github.com/user-attachments/assets/a05f286b-2e91-469d-b631-934cef6c8c39)
