@@ -21,7 +21,7 @@ function App() {
 
     return (
         <div>
-            <BrowserRouter>
+            <BrowserRouter basename="/VintageWheels-Ecommerce">
                 <Navbar setSearchTerm={setSearchTerm}/>
 
                 <Routes>
