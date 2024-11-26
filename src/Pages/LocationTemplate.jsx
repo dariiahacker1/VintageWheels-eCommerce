@@ -1,11 +1,16 @@
 import React from 'react';
 import './CSS/LocationTemplate.css'
+import locationImages from '../Components/Assets/locations/locationImages'
+
+const getImageFromDbString = (imageName) => {
+    return locationImages[imageName] || null;
+};
 
 const LocationTemplate = ({title, image, description, address, phone, email}) => {
     return (
         <div className="location-template">
             <div className="banner">
-                <img src={image} alt={title}></img>
+                <img src={getImageFromDbString(image)} alt={title}></img>
                 <div className="banner-title">
                     <h1>{title}</h1>
                 </div>

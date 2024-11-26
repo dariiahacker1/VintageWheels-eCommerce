@@ -4,11 +4,11 @@ import Featured from '../Components/Featured/Featured'
 import './CSS/Home.css'
 import About from '../Components/About/About'
 
-const Home = () => {
+const Home = ({allCars}) => {
     return(
         <div className="home">
             <SlideShow />
-            <Featured/>
+            <Featured allCars={allCars} />
             <About />
         </div>
     )

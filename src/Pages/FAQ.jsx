@@ -1,10 +1,25 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import './CSS/FAQ.css';
-import faq from '../Components/Assets/faq';
+import fetc from '../Components/Assets/fetchFAQ';
+import {fetchFAQData} from "../Components/Assets/fetchFAQ";
 
 const FAQ = () => {
 
     const [openIndex, setOpenIndex] = useState(null);
+    const [allFAQs, setFAQs] = useState([]);
+
+    useEffect(() => {
+        const getFAQs = async () => {
+            try {
+                const faqData = await fetchFAQData();
+                setFAQs(faqData);
+            } catch (error) {
+                console.error('Error fetching cars:', error);
+            }
+        };
+        getFAQs();
+    }, []);
+
 
     const toggleAnswer = (index) => {
         setOpenIndex(prevIndex => prevIndex === index ? null : index);
@@ -16,7 +31,7 @@ const FAQ = () => {
 
             <div className="questions">
                 {
-                    faq.map((faqItem, index) => (
+                    allFAQs.map((faqItem, index) => (
                         <div key={index} className="faq-item">
 
                             <div className="question" onClick={() => toggleAnswer(index)}>

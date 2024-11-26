@@ -143,6 +143,7 @@ table tr:nth-child(even) {
         background: #8e1311;
         font-size: 16px;
         cursor: pointer;
+        margin: 10px 0px;
     }
 
     button:hover{

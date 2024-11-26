@@ -1,9 +1,14 @@
 import React from 'react';
 import './CSS/Locations.css'
-import locations from '../Components/Assets/locations'
-import {Link} from 'react-router-dom';
 
-const Locations = () => {
+import {Link} from 'react-router-dom';
+import locationImages from '../Components/Assets/locations/locationImages'
+
+const getImageFromDbString = (imageName) => {
+    return locationImages[imageName] || null;
+};
+
+const Locations = ({allLocations}) => {
     return (
         <div className="locations">
             <h1>VINTAGE WHEELS LOCATIONS</h1>
@@ -11,11 +16,11 @@ const Locations = () => {
             <div className="locations-container">
 
                 {
-                    locations.map((location) => (
+                    allLocations.map((location) => (
 
-                            <Link style={{textDecoration: 'none', color: 'inherit'}} to={location.path}>
+                            <Link style={{textDecoration: 'none', color: 'inherit'}} to={`/locations/${location.name.toLowerCase()}`}>
                                 <div className="location">
-                                    <img src={location.image} alt=""/>
+                                    <img src={getImageFromDbString(location.image)} alt=""/>
                                     <div className="location-name">
                                         <p>{location.name}</p>
                                     </div>

@@ -7,17 +7,43 @@ import Locations from './Pages/Locations'
 import LoginSignup from "./Pages/LoginSignup";
 import Footer from './Components/Footer/Footer'
 import LocationTemplate from "./Pages/LocationTemplate";
-import './Components/Assets/locations'
-import locations from './Components/Assets/locations'
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import OurStory from './Pages/OurStory'
 import FAQ from './Pages/FAQ'
 import CarTemplate from './Pages/CarTemplate';
-import all_cars from "./Components/Assets/all_cars";
+import { fetchCarsData } from './Components/Assets/fetchCarData';
+import { fetchLocations } from './Components/Assets/fetchLocations';
 
 function App() {
 
     const [searchTerm, setSearchTerm] = useState('');
+    const [allCars, setCars] = useState([]);
+    const [allLocations, setLocations] = useState([]);
+
+    useEffect(() => {
+        const getCars = async () => {
+            try {
+                const carsData = await fetchCarsData();
+                setCars(carsData);
+            } catch (error) {
+                console.error('Error fetching cars:', error);
+            }
+        };
+
+        getCars();
+    }, []);
+
+    useEffect(() => {
+        const getLocations = async () => {
+         try{
+             const locationsData = await fetchLocations();
+             setLocations(locationsData);
+         } catch (error) {
+             console.error('Error fetching locations:', error);
+         }
+        };
+        getLocations();
+    },[])
 
     return (
         <div>
@@ -25,14 +51,14 @@ function App() {
                 <Navbar setSearchTerm={setSearchTerm}/>
 
                 <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/inventory" element={<Inventory searchTerm={searchTerm}/>} />
-                    <Route path="/locations" element={<Locations />} />
+                    <Route path="/" element={<Home allCars={allCars}/>} />
+                    <Route path="/inventory" element={<Inventory allCars={allCars} searchTerm={searchTerm}/>} />
+                    <Route path="/locations" element={<Locations allLocations={allLocations}/>} />
 
-                    {locations.map((location) => (
+                    {allLocations.map((location) => (
                         <Route
                             key={location.id}
-                            path={location.path}
+                            path={`/locations/${location.name.toLowerCase()}`}
                             element={
                                 <LocationTemplate
                                     title={location.location}
@@ -46,7 +72,7 @@ function App() {
                         />
                     ))}
 
-                    {all_cars.map((car) => (
+                    {allCars.map((car) => (
                         <Route
                             key={car.id}
                             path={`/car${car.id}`}

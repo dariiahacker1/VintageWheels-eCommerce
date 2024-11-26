@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
-import all_cars from "../Components/Assets/all_cars";
+import React, {useState, useEffect} from 'react';
 import Item from "../Components/Item/Item";
 import './CSS/Inventory.css';
 import CategoryBar from "../Components/CategoryBar/CategoryBar";
 import AdvancedSearch from '../Components/AdvancedSearch/AdvancedSearch'
+import carImages from '../Components/Assets/images/carImages'
+import {fetchCarsData} from '../Components/Assets/fetchCarData';
 
-const Inventory = ({ searchTerm }) => {
-    const makes = new Set();
+const getImageFromDbString = (imageName) => {
+    return carImages[imageName] || null;
+};
 
-    for (let i = 0; i < all_cars.length; i++) {
-        makes.add(all_cars[i].make);
-    }
+const Inventory = ({searchTerm, allCars}) => {
 
+    const [makes, setMakes] = useState(new Set());
     const [make, setMake] = useState("all");
     const [category, setCategory] = useState("all");
     const [showAdvancedSearch, setShowAdvancedSearch] = useState(false);
@@ -23,16 +24,20 @@ const Inventory = ({ searchTerm }) => {
     const [odometerMin, setOdometerMin] = useState('');
     const [odometerMax, setOdometerMax] = useState('');
 
+    useEffect(() => {
+        const carMakes = new Set(allCars.map(car => car.make));
+        setMakes(carMakes);
+    }, [allCars]);
 
     const convertPrice = (priceStr) => parseFloat(priceStr.replace(/,/g, ''));
 
-    const filteredCars = all_cars.filter(item => {
+    const filteredCars = allCars.filter(item => {
         const itemPrice = convertPrice(item.price);
         const itemTransmission = item.transmission ? item.transmission.toLowerCase() : '';
 
         const searchFilter = searchTerm === '' || item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.location.toLowerCase().includes(searchTerm.toLowerCase()) || item.make.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.model.toLowerCase().includes(searchTerm.toLowerCase());
+            item.location.toLowerCase().includes(searchTerm.toLowerCase()) || item.make.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            item.model.toLowerCase().includes(searchTerm.toLowerCase());
 
         return (
             searchFilter &&
@@ -54,7 +59,7 @@ const Inventory = ({ searchTerm }) => {
 
     return (
         <div className="inventory">
-            <CategoryBar category={category} setCategory={setCategory} makes={makes} setMake={setMake} make={make} />
+            <CategoryBar category={category} setCategory={setCategory} makes={makes} setMake={setMake} make={make}/>
 
             <div className="right-side">
 
@@ -63,16 +68,31 @@ const Inventory = ({ searchTerm }) => {
                 </div>
 
                 {showAdvancedSearch &&
-                   <AdvancedSearch yearFrom={yearFrom} yearTo={yearTo} setYearFrom={setYearFrom} setYearTo={setYearTo} priceLowest={priceLowest} priceHighest={priceHighest}
-                   setPriceLowest={setPriceLowest} setPriceHighest={setPriceHighest} transmission={transmission} setTransmission={setTransmission} odometerMin={odometerMin}
-                   odometerMax={odometerMax} setOdometerMax={setOdometerMax} setOdometerMin={setOdometerMin}/>
+                    <AdvancedSearch yearFrom={yearFrom} yearTo={yearTo} setYearFrom={setYearFrom} setYearTo={setYearTo}
+                                    priceLowest={priceLowest} priceHighest={priceHighest}
+                                    setPriceLowest={setPriceLowest} setPriceHighest={setPriceHighest}
+                                    transmission={transmission} setTransmission={setTransmission}
+                                    odometerMin={odometerMin}
+                                    odometerMax={odometerMax} setOdometerMax={setOdometerMax}
+                                    setOdometerMin={setOdometerMin}/>
                 }
 
                 <div className="items">
-                    {filteredCars.map((item, i) => (
-                        <Item key={i} id={item.id} name={item.name} image={item.images[0]} price={item.price} />
-                    ))}
+                    {filteredCars.map((item, i) => {
+
+                        return (
+                            <Item
+                                key={i}
+                                id={item.id}
+                                name={item.name}
+                                image={getImageFromDbString(item.images[0])}
+                                price={item.price}
+                            />
+                        );
+
+                    })}
                 </div>
+
             </div>
         </div>
     );

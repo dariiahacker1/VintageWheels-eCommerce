@@ -1,23 +1,22 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './Featured.css';
-import all_cars from '../Assets/all_cars';
 import Item from '../Item/Item';
 import {Link} from 'react-router-dom';
+import carImages from '../Assets/images/carImages'
+import { fetchCarsData } from '../Assets/fetchCarData';
 
-const Featured = () => {
-    const left = 2;
-    const right = 6;
+const Featured = ({allCars}) => {
 
     return (
         <div className="featured">
             <h1>FEATURED CLASSIC CARS FOR SALE</h1>
             <div className="featured-item">
-                {all_cars.slice(left, right).map((item) => (
+                {allCars.slice(1, 5).map((item) => (
                     <Item
                         key={item.id}
                         id={item.id}
                         name={item.name}
-                        image={item.images[0]}
+                        image={carImages[item.images[0]]}
                         price={item.price}
                     />
                 ))}
